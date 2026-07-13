@@ -8,7 +8,7 @@ This repository contains the data-processing, image-selection, registration, and
 
 ## Overview
 
-Manufacturing inspection requires physically accurate measurements of mechanical objects, but dense 3D measurement typically requires slow and costly optical scanning. This work introduces a deep learning method that creates physically accurate 3D digital twins from a single image. A learned Image Selector predicts the 3D reconstruction error of each candidate image from a two-channel geometric representation (depth map + camera-facing surface-normal component), ranks the candidates, and forwards only the lowest-predicted-error image to a 2D-to-3D reconstruction model. Trained entirely on 488,400 synthetic images rendered from 3,700 CAD models, the method achieves average measurement accuracy of 71 µm for digital-camera photographs and 164 µm for smartphone photographs and videos across 50 physical parts, in about 12 s per part.
+Manufacturing inspection requires physically accurate measurements of mechanical objects, but dense 3D measurement typically requires slow and costly optical scanning. This work introduces a deep learning method that creates physically accurate 3D digital twins from a single image. A learned Image Selector predicts the 3D reconstruction error of each candidate image from a two-channel geometric representation (depth map + camera-facing surface-normal component), ranks the candidates, and forwards only the lowest-predicted-error image to a 2D-to-3D reconstruction model. Trained entirely on 488,400 synthetic images rendered from 3,700 CAD models, the method was evaluated on 50 physical parts. In a 48-feature dimensional study of eight representative parts, the mean absolute feature-dimension errors were 71 µm for digital-camera images and 164 µm for smartphone images.
 
 ![Method overview](./assets/Figure.png)
 
@@ -81,11 +81,13 @@ rtree
 
 Tested with Python 3.12. A CUDA-capable GPU is strongly recommended: geometry-map prediction runs a diffusion-based surface-normal estimator per image, and Image Selector evaluation batches 256 images at 224 × 224. CPU execution works but is slow.
 
+The reported runtime of approximately 12 s per part was measured for a 132-image candidate set using a single NVIDIA H200 GPU. Runtime will vary with GPU model, candidate-set size, and software configuration.
+
 ## Smartphone-Video Reconstruction Workflow
 
 ![Smartphone-video reconstruction workflow](./assets/Video.gif)
 
-**Video | Reconstruction workflow for the Dronen.** input smartphone frames, estimated depth and surface-normal maps, frame-by-frame predicted reconstruction accuracy, selected best frame, resulting 3D reconstruction, and comparison with the reference geometry.
+**Video | Smartphone-video 3D reconstruction workflow for the Drone.** Input smartphone frames, estimated depth and surface-normal maps, frame-by-frame predicted reconstruction accuracy, selected best frame, resulting 3D reconstruction, and comparison with the reference geometry.
 
 ## Usage
 
@@ -96,7 +98,15 @@ Tested with Python 3.12. A CUDA-capable GPU is strongly recommended: geometry-ma
 5. Run `icp_alignment.ipynb` to register reconstructions to reference meshes and compute volumetric error.
 6. Run `latent_space.ipynb` to reproduce the latent-space analysis.
 
-To run a notebook from the command line:
+### Run from the command line
+
+Execute the notebook and save the results as an executed notebook:
+
+```bash
+jupyter nbconvert --to notebook --execute depth_normal_predictor.ipynb --ExecutePreprocessor.timeout=-1
+```
+
+Alternatively, convert the notebook to a Python script and run the script:
 
 ```bash
 jupyter nbconvert --to script depth_normal_predictor.ipynb
