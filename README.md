@@ -23,8 +23,8 @@ Manufacturing inspection requires physically accurate measurements of mechanical
 ├── icp_alignment.ipynb            # Coarse + similarity-ICP registration and volumetric-error report
 ├── latent_space.ipynb             # Latent-space analysis (PCA, t-SNE, K-means) of ranked views
 ├── assets/
-│   ├── fig1.png                   # Method overview (Fig. 1 of the paper)
-│   └── video2_drone.gif           # Smartphone-video reconstruction workflow (Supplementary Video 2)
+│   ├── Figure.png                 # Method overview
+│   └── Video.gif                  # Smartphone-video reconstruction workflow
 ├── input/                         # Place candidate images / reference meshes here (not tracked)
 ├── caches/                        # Precomputed target caches (.npz) for selector evaluation
 ├── checkpoints/                   # Trained Image Selector checkpoint (TorchScript)
