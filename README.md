@@ -83,7 +83,7 @@ Tested with Python 3.12. A CUDA-capable GPU is strongly recommended: geometry-ma
 
 ## Smartphone-Video Reconstruction Workflow
 
-![Smartphone-video reconstruction workflow](./assets/Supplementary Video.gif)
+![Smartphone-video reconstruction workflow](./assets/Supplementary%20Video.gif)
 
 **Video .** Reconstruction workflow for the Drone: input smartphone frames, estimated depth and surface-normal maps, frame-by-frame predicted reconstruction accuracy, selected best frame, resulting 3D reconstruction, and comparison with the reference geometry.
 
