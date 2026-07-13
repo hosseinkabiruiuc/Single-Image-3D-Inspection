@@ -41,8 +41,7 @@ The subset includes:
 
 - Synthetic 2D views rendered from CAD models over the 132-position azimuth-polar pose grid (12 azimuth × 11 polar angles), with co-registered depth and surface-normal maps
 - Digital-camera photographs of small physical parts acquired on the robotic stage at the same 132 rotational positions
-- Smartphone photographs and video frames of large physical parts
-- Reference geometries and reconstructed meshes for registration and volumetric-error evaluation
+- Smartphone video frames of large physical parts
 
 ## Pipeline
 
