@@ -48,9 +48,9 @@ The subset includes:
 
 The workflow runs in three stages. Each notebook is self-contained and configured through the path constants at the top of its first cell.
 
-### Stage 1 — Geometry-map prediction (`depth_normal_predictor.ipynb`)
+### Stage 1 — Geometry-map prediction
 
-Converts each candidate image into the two-channel geometric representation used by the Image Selector. Pretrained monocular depth and surface-normal estimators predict per-pixel geometry, a foreground mask is derived from the alpha channel or near-white background, and masked depth and normal maps are written to `outputs/` with a white background, one `depth/` and one `normal/` folder per part.
+`src/depth_normal_predictor.ipynb` — Converts each candidate image into the two-channel geometric representation used by the Image Selector. Pretrained monocular depth and surface-normal estimators predict per-pixel geometry, a foreground mask is derived from the alpha channel or near-white background, and masked depth and normal maps are written to `outputs/` with a white background, with one `depth/` and one `normal/` folder per part.
 
 ### Stage 2 — Image ranking and evaluation (`image_selector.ipynb`)
 
