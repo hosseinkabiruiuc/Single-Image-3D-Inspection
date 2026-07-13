@@ -10,7 +10,7 @@ This repository contains the data-processing, image-selection, registration, and
 
 Manufacturing inspection requires physically accurate measurements of mechanical objects, but dense 3D measurement typically requires slow and costly optical scanning. This work introduces a deep learning method that creates physically accurate 3D digital twins from a single image. A learned Image Selector predicts the 3D reconstruction error of each candidate image from a two-channel geometric representation (depth map + camera-facing surface-normal component), ranks the candidates, and forwards only the lowest-predicted-error image to a 2D-to-3D reconstruction model. Trained entirely on 488,400 synthetic images rendered from 3,700 CAD models, the method achieves average measurement accuracy of 71 µm for digital-camera photographs and 164 µm for smartphone photographs and videos across 50 physical parts, in about 12 s per part.
 
-![Method overview](assets/Figure.png)
+![Method overview](./assets/Figure.png)
 
 **Fig. 1 | Deep learning method for accurate 3D reconstruction using intelligent view selection.** The Image Selector is trained on synthetic depth-normal inputs rendered from CAD models with measured volumetric-error supervision. During inference, the trained model ranks candidate images of real physical parts by predicted reconstruction error and selects the lowest-error image for 2D-to-3D reconstruction.
 
