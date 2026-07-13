@@ -50,11 +50,11 @@ The workflow runs in three stages. Each notebook is self-contained and configure
 
 ### Stage 1 — Geometry-map prediction
 
-`src/depth_normal_predictor.ipynb` — Converts each candidate image into the two-channel geometric representation used by the Image Selector. Pretrained monocular depth and surface-normal estimators predict per-pixel geometry, a foreground mask is derived from the alpha channel or near-white background, and masked depth and normal maps are written to `outputs/` with a white background, with one `depth/` and one `normal/` folder per part.
+[`depth_normal_predictor.ipynb`](src/depth_normal_predictor.ipynb) — Converts each candidate image into the two-channel geometric representation used by the Image Selector. Pretrained monocular depth and surface-normal estimators predict per-pixel geometry, a foreground mask is derived from the alpha channel or near-white background, and masked depth and normal maps are written to `outputs/` with a white background, with one `depth/` and one `normal/` folder per part.
 
-### Stage 2 — Image ranking and evaluation (`image_selector.ipynb`)
+### Stage 2 — Image ranking and evaluation
 
-Loads the trained Image Selector (a self-contained TorchScript checkpoint in `checkpoints/`) and the precomputed target caches in `caches/`. Builds the 2 × 224 × 224 depth-normal input for every candidate image, predicts a scalar reconstruction-error score, reports R², MAE, and MSE against measured volumetric-error labels for the train/validation/test splits, and writes per-part image rankings (rank 1 = lowest predicted error = selected best image). Splits are grouped by CAD model so that all 132 views of a model stay in the same split.
+[`mage_selector.ipynb`](src/image_selector.ipynb) — loads the trained Image Selector (a self-contained TorchScript checkpoint in `checkpoints/`) and the precomputed target caches in `caches/`. Builds the 2 × 224 × 224 depth-normal input for every candidate image, predicts a scalar reconstruction-error score, reports R², MAE, and MSE against measured volumetric-error labels for the train/validation/test splits, and writes per-part image rankings (rank 1 = lowest predicted error = selected best image). Splits are grouped by CAD model so that all 132 views of a model stay in the same split.
 
 ### Stage 3 — Registration and analysis
 
