@@ -12,7 +12,7 @@ Manufacturing inspection requires physically accurate measurements of mechanical
 
 ![Method overview](./assets/Figure.png)
 
-**Fig. 1 | Deep learning method for accurate 3D reconstruction using intelligent view selection.** The Image Selector is trained on synthetic depth-normal inputs rendered from CAD models with measured volumetric-error supervision. During inference, the trained model ranks candidate images of real physical parts by predicted reconstruction error and selects the lowest-error image for 2D-to-3D reconstruction.
+**Figure | Deep learning method for accurate 3D reconstruction using intelligent view selection.** The Image Selector is trained on synthetic depth-normal inputs rendered from CAD models with measured volumetric-error supervision. During inference, the trained model ranks candidate images of real physical parts by predicted reconstruction error and selects the lowest-error image for 2D-to-3D reconstruction.
 
 ## Repository Structure
 
@@ -83,9 +83,9 @@ Tested with Python 3.12. A CUDA-capable GPU is strongly recommended: geometry-ma
 
 ## Smartphone-Video Reconstruction Workflow
 
-![Smartphone-video reconstruction workflow](assets/video2_drone.gif)
+![Smartphone-video reconstruction workflow](./assets/Supplementary Video.gif)
 
-**Supplementary Video 2.** Reconstruction workflow for the Drone: input smartphone frames, estimated depth and surface-normal maps, frame-by-frame predicted reconstruction accuracy, selected best frame, resulting 3D reconstruction, and comparison with the reference geometry.
+**Video .** Reconstruction workflow for the Drone: input smartphone frames, estimated depth and surface-normal maps, frame-by-frame predicted reconstruction accuracy, selected best frame, resulting 3D reconstruction, and comparison with the reference geometry.
 
 ## Usage
 
